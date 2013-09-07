@@ -1,0 +1,245 @@
+Filename: changelog.txt
+
+1377576000 - Fixed a bug on the Dashboard Widget -> Campaign Resources, It displays the campaign id that it has no or less than 100 leads where
+           -  it still has more than 100 leads on the hopper -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/models/go_dashboard.php
+
+           - Added a page for viewing Admin Logs under Admin Settings menu -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/config/routes.php
+           - * application/views/includes/go_menu.php
+           - * css/go_colors_fresh.css
+           - * application/controllers/go_login.php
+           - * application/controllers/go_calltimes_ce.php
+           - * application/controllers/go_campaign_ce.php
+           - * application/controllers/go_carriers_ce.php
+           - * application/controllers/go_dnc_ce.php
+           - * application/controllers/go_list.php
+           - * application/controllers/go_phones_ce.php
+           - * application/controllers/go_servers_ce.php
+           - * application/controllers/go_systemsettings_ce.php
+           - * application/controllers/go_user_ce.php
+           - * application/controllers/go_usergroup_ce.php
+           - * application/controllers/go_voicemail_ce.php
+           - * application/models/go_calltimes.php
+           - * application/models/go_campaign.php
+           - * Created Files:
+           - * application/controllers/go_logs_ce.php
+           - * application/views/go_settings/go_logs.php
+           - * application/views/go_settings/go_logs_list.php
+
+           - Sorted the sub-menus of Telephony -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/views/includes/go_menu.php
+
+1377316800 - Minor fix for FB plugin on dashboard. URL protocol changed from http to https -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/views/go_dashboard.php
+
+           - Fixed the code that checks the .conf file from etc folder first then if it does not exist, it will look at the document root of
+           -  the web server (eg. /var/www/html) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/config/config.php
+           - * application/config/database.php
+
+           - Fixed a variable which sets the working folder of the script for uploading leads -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/controllers/go_list.php
+
+1376971200 - Changed the position of the Transfer Conference Box a little bit to the right -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * agent/agent.php
+
+           - Added file restriction on htaccess for .conf file types -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * .htaccess
+
+1376712000 - Removed the Manual Dial Prefix from the Campaign Wizard -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/views/go_campaign/go_campaign_wizard_output.php
+
+1376539200 - Fixed bug 785 not change view for unified searches (displaying no length_in_sec) -- Franco Hora <franco@goautodial.com>
+           - * Affected Files:
+           - * application/views/go_search/go_search.php
+           - * application/models/gosearch.php
+           - * application/controllers/go_search_ce.php
+
+           - Added the option to change the Manual Dial Prefix when editing a campaign (issue #791) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/views/go_campaign/go_campaign_settings.php
+
+           - Added the option to put a Manual Dial Prefix when creating a campaign (issue #789) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/controllers/go_campaign_ce.php
+           - * application/views/go_campaign/go_campaign_wizard.php
+           - * application/views/go_campaign/go_campaign_wizard_output.php
+
+           - Fixed a bug where when modifying a carrier's dialplan entry, the one you entered will not be saved -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/views/go_settings/go_carrier_view.php
+
+1376452800 - Fixed the bug on resetting the hopper within the campaign settings (issue #780) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/controllers/go_campaign_ce.php
+           - * application/models/go_campaign.php
+           - * application/views/go_campaign/go_campaign_settings.php
+
+           - Fixed the bug on GOreports where Statistical Report and Agent Performance Detail is not tally on total agents (issue #781) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/models/go_reports.php
+           - * application/views/go_reports/go_reports.php
+
+1376020800 - Fixed the width of the dropdown selection of campaigns on Reports & Analytics page -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/views/go_reports/go_reports.php
+
+           - Fixed Bug report #769 under modify code for user permission-- Franco Hora <franco@goautodial.com>
+           - * Affected File:
+           - * application/controllers/go_usergroup_ce.php
+           - * application/models/go_access.php
+           - * application/views/go_settings/go_usergroup_view.php
+
+1375934400 - Fixed a bug when creating a new campaign and putting a custom dial prefix and click 'Finish'. It will
+           -  save as '--CUSTOM--' instead of the prefix that you entered -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/controllers/go_campaign_ce.php
+
+1375502400 - Added advance fields and a link to show them when loading new leads from the list loader -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/controllers/go_list.php
+           - * application/views/go_list/go_list.php
+
+1375156800 - Added WEB FORM SUBMIT link when disposing a call submitted by striker 24x7 (issue #711) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * agent/agent.php
+
+1374724800 - Fixed an issue when downloading an Inbound Call Report, the call date and time isn't included on the
+           -  csv file (issue #767) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/models/go_reports.php
+
+1374206400 - Fixed an issue submitted by Scott H where when exporting call reports, the columns are getting messy
+           -  if the exported data has a comma in some of it's value (issue #763) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/models/go_reports.php
+
+1374120000 - Fixed the Agent UI custom form button bug where the button is still disabled when the Lead Preview
+           -  checkbox is checked regardless if the loaded list has custom fields also fixed a CSS bug when doing
+           -  a Lead Search and viewing the lead info, there is no scrollbar showing (issue #754) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * agent/agent.php
+
+           - Added Agent Lead Search and Agent Lead Search Method on the campaign settings to enable or disable the
+           -  lead searching with in the agent ui -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/views/go_campaign/go_campaign_settings.php
+
+           - Fixed a bug on Server settings submitted by David Esquivel (issue #758) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/controllers/go_servers_ce.php
+           - * application/views/go_settings/go_server_view.php
+
+1374033600 - Changed the jquery file for Call Time feature -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/views/go_settings/go_calltimes.php
+           - * Added Files:
+           - * js/jquery-1.9.0.min.js
+           - * js/ui/1.10.0/jquery-ui.min.js
+
+           - Changed the size for After Hour Audio textbox on Call Time wizard and modification page -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/views/go_settings/go_calltimes_view.php
+           - * application/views/go_settings/go_calltimes_wizard.php
+
+           - Fixed some issue in Carrier Settings' css layout and temporarily removed Zap and
+           -   External protocol and changed it to Custom -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/views/go_settings/go_carriers.php
+           - * application/views/go_settings/go_carrier_view.php
+           - * application/views/go_settings/go_carrier_wizard.php
+
+           - Fixed the custom protocol on Carrier Settings and Wizard -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/controllers/go_carriers_ce.php
+           - * application/views/go_settings/go_carriers.php
+           - * application/views/go_settings/go_carrier_view.php
+           - * application/views/go_settings/go_carrier_wizard.php
+
+           - Fixed an issue with the dropped call percentage within the dashboard -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/views/go_dashboard_drop_percentage.php
+
+1373947200 - Fixed the Carrier Wizard when adding manual carriers where you can't type dash '-'
+           -   to the Server IP/Host textbox and removed some texts -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/views/go_settings/go_carrier_wizard.php
+           - * application/views/go_settings/go_carrier_view.php
+
+           - Fixed a bug on adding web form address that has question mark (?) within the given URL -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/models/go_campaign.php
+           - * application/views/go_campaign/go_campaign_settings.php
+
+           - Add new feature "Call Times" (issue #697) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/config/routes.php
+           - * application/views/includes/go_menu.php
+           - * application/views/includes/go_dashboard_body_jsloader.php
+           - * application/views/go_campaign/go_campaign_settings.php
+           - * css/go_load_styles.css
+           - * js/go_fload_scripts.js
+           - * Created Files:
+           - * js/jquery-ui-timepicker-addon.js
+           - * js/jquery-ui-sliderAccess.js
+           - * application/controllers/go_calltimes_ce.php
+           - * application/models/go_calltimes.php
+           - * application/views/go_settings/go_calltimes.php
+           - * application/views/go_settings/go_calltimes_list.php
+           - * application/views/go_settings/go_calltimes_view.php
+           - * application/views/go_settings/go_calltimes_wizard.php
+           - * application/views/go_settings/go_state_calltimes_wizard.php
+
+1373515200 - Change auto_dial_level for INBOUND_MAN from OFF (0) to SLOW (1) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/views/go_campaign/go_campaign.php
+           - * application/views/go_campaign/go_campaign_settings.php
+
+1373428800 - Added INBOUND_MAN on the Campaign Settings -> Dial Method (issue #751) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/views/go_campaign/go_campaign_list.php
+           - * application/views/go_campaign/go_campaign_settings.php
+
+           - Fix bug (when click settings it submits to search) -- Franco Hora <franco@goautodial.com>
+           - * Affected Files:
+           - * application/views/includes/go_dashboard_header.php
+           - * application/views/includes/go_dashboard_header_jsloader.php
+
+           - Fixed a bug when changing number of lines on survey campaigns (issue #752) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected File:
+           - * application/models/go_campaign.php
+
+           - Fixed the Admin Settings' icons per page -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * css/go_colors_fresh.css
+           - * application/views/go_settings/go_carriers.php
+           - * application/views/go_settings/go_servers.php
+           - * application/views/go_settings/go_usergroups.php
+           - * application/views/go_settings/go_voicemails.php
+           - * application/views/go_systemsettings/index.php
+	   - Modification (Added carrier response loading display in response) -- Franco Hora <franco@goautodial.com>
+	   - * application/views/go_settings/go_carrier_wizard_sippy.php
+	   - * application/views/go_settings/go_carrier_view.php
+	   - * application/views/go_settings/go_carrier_wizard.php
+
+1373342400 - Modified/simplified the Carrier wizard and configuration -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/controllers/go_carrier_ce.php
+           - * application/models/go_carriers.php
+           - * application/views/go_settings/go_carrier_view.php
+           - * application/views/go_settings/go_carrier_wizard.php
+
+           - Added Manual Dial Filter on the Advance Campaign Settings (issue #743) -- Chris Lomuntad <chris@goautodial.com>
+           - * Affected Files:
+           - * application/models/go_campaign.php
+           - * application/views/go_campaign/go_campaign_settings.php
