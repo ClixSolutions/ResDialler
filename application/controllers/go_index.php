@@ -43,9 +43,10 @@ class Go_index extends Controller {
 			$is_logged_in = $this->session->userdata('is_logged_in');
 			if(!isset($is_logged_in) || $is_logged_in != true)
 				{
-					$data['log_status'] = 'start';
-					$data['go_main_content'] = 'go_main_page';
-					$this->load->view('includes/go_index_template', $data);
+                                        redirect('http://dialler.res.clixconnect.net/agent');
+					//$data['log_status'] = 'start';
+					//$data['go_main_content'] = 'go_main_page';
+					//$this->load->view('includes/go_index_template', $data);
 				}
 				else
 				{

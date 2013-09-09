@@ -33,7 +33,7 @@ if ( file_exists("/etc/astguiclient.conf") )
 else
 	{
 	#defaults for DB connection
-	$VARDB_server = 'localhost';
+	$VARDB_server = 'diallerdb.res.clixconnect.net';
 	$VARDB_port = '3306';
 	$VARDB_user = 'cron';
 	$VARDB_pass = '1234';

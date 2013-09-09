@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>Comparison</TITLE>
+
+<script src="js/jquery-1.7.min.js"></script>
+
+<style>
+    body {
+        font-family: verdana;
+        font-size: 12px;
+    }
+    
+    b {
+        color: steelblue;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    
+    .floatLeft {
+        float: left;
+        width: 50%;
+    }
+    
+    input {
+        border-radius: 3px;
+        border: steelblue 1px solid;
+    }
+    
+    
+    .clear {
+        clear: both;
+        width: 600px;
+    }
+</style>
+
+<script>
+
+    function addCommas(nStr)
+    {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+    }
+
+
+    var originaldebt = 1;
+    var disposableincome = 1;
+    var monthlyFee = 0.175;
+    var monthReduction = 0.30;
+    
+    var initialFee, monthlyDistribution, debtMonths, numReviews, totalReviewFees, totalDuration, totalFees, totalPayable, caseFee
+    var DRmonthlyDistribution, DRtotalDuration, DRtotalFees, DRtotalPayable, amountSaved, timeSavedMonths, timeSavedYears
+    
+    
+    function doMath() {
+    
+        // Debt Management Cost
+        initialFee = (disposableincome * 3);
+        monthlyDistribution = disposableincome - (disposableincome*monthlyFee);
+        debtMonths = originaldebt / monthlyDistribution;
+        numReviews = debtMonths / 6;
+        totalReviewFees = numReviews * disposableincome;
+        totalDuration = debtMonths + numReviews;
+        totalDurationYears = totalDuration / 12;
+        totalFees = initialFee + (debtMonths * (disposableincome-monthlyDistribution)) + totalReviewFees;
+        totalPayable = Number(originaldebt) + Number(totalFees);
+        
+        // Debt Reduction Cost
+        caseFee = 10.8 * disposableincome;
+        DRmonthlyDistribution = disposableincome / 1.175;
+        DRtotalDuration = ((originaldebt*monthReduction) / (DRmonthlyDistribution)) + 11;
+        DRtotalDurationYears = DRtotalDuration / 12;
+        DRtotalFees = (DRtotalDuration * (disposableincome-DRmonthlyDistribution)) + caseFee;
+        DRtotalPayable = (DRtotalDuration) * disposableincome;
+        
+        amountSaved = totalPayable - DRtotalPayable;
+        timeSavedMonths = totalDuration - DRtotalDuration;
+        timeSavedYears = timeSavedMonths / 12;
+        
+        
+        $('#initialFee').html(addCommas(initialFee.toFixed(0)));
+        $('#caseFee').html(addCommas(caseFee.toFixed(0)));
+        $('#monthlyDistribution').html(addCommas(monthlyDistribution.toFixed(0)));
+        $('#DRmonthlyDistribution').html(addCommas(DRmonthlyDistribution.toFixed(0)));
+        
+        $('#totalReviewFees').html(addCommas(totalReviewFees.toFixed(0)));
+
+        $('#totalDuration').html(totalDuration.toFixed(0));
+        $('#DRtotalDuration').html(DRtotalDuration.toFixed(0));
+        
+        $('#totalDurationYears').html(totalDurationYears.toFixed(0));
+        $('#DRtotalDurationYears').html(DRtotalDurationYears.toFixed(0));
+
+        $('#totalFees').html(addCommas(totalFees.toFixed(0)));
+        $('#DRtotalFees').html(addCommas(DRtotalFees.toFixed(0)));
+
+        $('#totalPayable').html(addCommas(totalPayable.toFixed(0)));
+        $('#DRtotalPayable').html(addCommas(DRtotalPayable.toFixed(0)));
+
+        $('#amountSaved').html(addCommas(amountSaved.toFixed(0)));
+        $('#timeSavedMonths').html(timeSavedMonths.toFixed(0));
+        $('#timeSavedYears').html(timeSavedYears.toFixed(0));
+        
+        
+    }
+
+
+    $(document).ready(function() {
+        
+        $("#calculate").click(function() {
+            originaldebt = $("#originalDebt").val();
+            disposableincome = $("#disposableIncome").val();;
+            
+            doMath();
+
+        });
+                
+        
+    
+    });
+    
+
+</script>
+
+</HEAD>
+<BODY>
+
+<!--
+<center>
+	<h1>Comparison Disabled</h1>
+</center>
+-->
+
+<div class="clear">
+    <b>Original Debt: </b>£<input type="text" id="originalDebt" class="debtChange" value="1"><br />
+    <b>Disposable Income: </b>£<input type="text" id="disposableIncome" class="debtChange" value="1">
+    <input type="button" id="calculate" value="Calculate">
+</div>
+
+<br /><br />
+
+<div class="clear">
+    <div class="floatLeft"><b>Debt Management</b></div>
+    <div class="floatLeft"><b>Debt Reduction</b></div>
+</div>
+
+<div class="clear">
+    <div class="floatLeft">Initial Fee: £<span id="initialFee"></span></div>
+    <div class="floatLeft">Case Fee: £<span id="caseFee"></span></div>
+</div>
+
+<div class="clear">
+    <div class="floatLeft">Monthly Distribution: £<span id="monthlyDistribution"></span></div>
+    <div class="floatLeft">Monthly Distribution: £<span id="DRmonthlyDistribution"></span></div>
+</div>
+
+<div class="clear">Total Review Fees: £<span id="totalReviewFees"></span></div>
+
+<div class="clear"><hr color="steelblue" size="1"></div>
+
+<div class="clear">
+    <div class="floatLeft">Total Duration (mths): <span id="totalDuration"></span></div>
+    <div class="floatLeft">Total Duration (mths): <span id="DRtotalDuration"></span></div>
+</div>
+
+<div class="clear">
+    <div class="floatLeft">in Years: <span id="totalDurationYears"></span></div>
+    <div class="floatLeft">in Years: <span id="DRtotalDurationYears"></span></div>
+</div>
+
+<div class="clear">
+    <div class="floatLeft">Total Fees: £<span id="totalFees"></span></div>
+    <div class="floatLeft">Total Fees: £<span id="DRtotalFees"></span></div>
+</div>
+
+<div class="clear">
+    <div class="floatLeft">Total Payable: £<span id="totalPayable"></span></div>
+    <div class="floatLeft">Total Payable: £<span id="DRtotalPayable"></span></div>
+</div>
+
+<div class="clear"><hr color="steelblue" size="1"></div>
+
+<div class="clear">
+    <div class="floatLeft">&nbsp;</div>
+    <div class="floatLeft">AMOUNT SAVED: £<span id="amountSaved"></span></div>
+</div>
+
+<div class="clear">
+    <div class="floatLeft">&nbsp;</div>
+    <div class="floatLeft">Time Saved (mths): <span id="timeSavedMonths"></span></div>
+</div>
+
+<div class="clear">
+    <div class="floatLeft">&nbsp;</div>
+    <div class="floatLeft">in Years: <span id="timeSavedYears"></span></div>
+</div>
+
+
+</BODY>
+</HTML>

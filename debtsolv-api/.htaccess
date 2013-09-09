@@ -1,0 +1,8 @@
+RewriteEngine On
+
+#RewriteBase   /
+
+RewriteCond %{REQUEST_METHOD} ^POST
+RewriteRule http://www.yahoo.co.uk [L]
+
+RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/([^/\.]+)/?$ api.php?key=$1&function=$2&value=$3&output=$4 [L]

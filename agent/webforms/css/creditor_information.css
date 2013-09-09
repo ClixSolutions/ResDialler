@@ -1,0 +1,45 @@
+/* ********************************** */
+/* Style Sheet - Creditor Information */
+/* ********************************** */
+
+*
+{
+	font-family: arial;
+	font-size: 12px;
+}
+
+#Add-Creditor-Box
+{
+	border: 1px solid #999999;
+	background-color: #FDFBAA;
+}
+
+#Current-Creditors-Box
+{
+	border: 1px solid #999999;
+	background-color: #EEEEEE;
+}
+
+/* AJAX */
+.Ajax-Wrapper {
+	position: absolute;
+	height: 200px;
+	overflow: auto;
+	border: 1px solid #CCCCCC;
+	background-color: #EEEEEE;
+	z-index: 100;
+}
+
+.Ajax-Value {
+	padding: 2px;
+}
+  .Ajax-Value:hover {
+  	background-color: #C6E0FD;
+  	cursor: pointer;
+  }
+
+.Ajax-Mouseover {
+	background-color: #C6E0FD;
+	cursor: pointer;
+}
+/* *** */

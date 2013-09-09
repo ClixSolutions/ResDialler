@@ -40,7 +40,10 @@
 |
 */
 
+//$route['default_controller'] = "go_index";
+
 $route['default_controller'] = "go_index";
+
 $route['scaffolding_trigger'] = "";
 $route['campaigns'] = "go_campaign_ce";
 $route['users'] = "go_user_ce/go_users";

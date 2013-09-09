@@ -193,6 +193,12 @@ if (isset($_GET["call_id"]))			{$call_id=$_GET["call_id"];}
 if (isset($_GET["web_vars"]))			{$web_vars=$_GET["web_vars"];}
 	elseif (isset($_POST["web_vars"]))	{$web_vars=$_POST["web_vars"];}
 
+$stmt="SELECT user_group from vicidial_users where user='".$_POST['user']."';";
+if ($DB) {echo "|$stmt|\n";}
+if ($non_latin > 0) {$rslt=mysql_query("SET NAMES 'UTF8'");}
+$rslt=mysql_query($stmt, $link);
+$row=mysql_fetch_row($rslt);
+$group=$row[0];
 
 header ("Content-type: text/html; charset=utf-8");
 header ("Cache-Control: no-cache, must-revalidate");  // HTTP/1.1
@@ -482,6 +488,7 @@ $script_text = eregi_replace('--A--entry_list_id--B--',"$entry_list_id",$script_
 $script_text = eregi_replace('--A--call_id--B--',"$call_id",$script_text);
 $script_text = eregi_replace('--A--web_vars--B--',"$web_vars",$script_text);
 
+
 if ($CF_uses_custom_fields=='Y')
 	{
 	### find the names of all custom fields, if any
@@ -506,7 +513,7 @@ if ($CF_uses_custom_fields=='Y')
 $script_text = eregi_replace("\n","<BR>",$script_text);
 $script_text = stripslashes($script_text);
 
-
+/*
 echo "<!-- IFRAME$IFRAME -->\n";
 echo "<!-- $script_id -->\n";
 echo "<TABLE WIDTH=$script_width><TR><TD>\n";
@@ -517,6 +524,9 @@ echo "$script_text\n";
 if ( ( ($IFRAME < 1) and ($ScrollDIV > 0) ) or (eregi("IGNORENOSCROLL",$script_text)) )
 	{echo "</div>";}
 echo "</TD></TR></TABLE>\n";
+*/
+
+echo $script_text;
 
 exit;
 

@@ -1,0 +1,18 @@
+/* CSS Style Sheet for Survey Form */
+
+*
+{
+	font-size: 12px;
+	font-family: arial;
+}
+
+#Survey-Table
+{
+	border: 1px solid #999999;
+	background-color: #FDFBAA;
+}
+
+ .Row-Color
+ {
+ 	 background-color: #E5E394;
+ }

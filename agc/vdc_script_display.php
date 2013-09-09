@@ -400,6 +400,7 @@ if (preg_match("/iframe\ssrc/i",$script_text))
 	$did_pattern = preg_replace('/\s/i','+',$did_pattern);
 	$did_description = preg_replace('/\s/i','+',$did_description);
 	$web_vars = preg_replace('/\s/i','+',$web_vars);
+        $user_group = preg_replace('/\s/i','+',$user_group);
 	}
 
 $script_text = preg_replace('/--A--lead_id--B--/i',"$lead_id",$script_text);
@@ -484,7 +485,7 @@ $script_text = preg_replace('/--A--xfercallid--B--/i',"$xfercallid",$script_text
 $script_text = preg_replace('/--A--agent_log_id--B--/i',"$agent_log_id",$script_text);
 $script_text = preg_replace('/--A--entry_list_id--B--/i',"$entry_list_id",$script_text);
 $script_text = preg_replace('/--A--call_id--B--/i',"$call_id",$script_text);
-$script_text = preg_replace('/--A--user_group--B--/i',"$user_group",$script_text);
+$script_text = preg_replace('/--A--user_group--B--/i',"HELLO",$script_text);
 $script_text = preg_replace('/--A--web_vars--B--/i',"$web_vars",$script_text);
 
 if ($CF_uses_custom_fields=='Y')
@@ -510,7 +511,6 @@ if ($CF_uses_custom_fields=='Y')
 
 $script_text = preg_replace("/\n/i","<BR>",$script_text);
 $script_text = stripslashes($script_text);
-
 
 echo "<!-- IFRAME$IFRAME -->\n";
 echo "<!-- $script_id -->\n";
