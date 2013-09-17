@@ -1,0 +1,108 @@
+/* CSS Style Sheet for Wallboard Admin */
+
+* {
+  font-family: arial;
+}
+
+body {
+  background-color: #EEE;
+}
+
+form {
+  margin: 0px;
+}
+
+h1 {
+  margin: 0px;
+}
+
+.Clear {
+  clear: both;
+}
+
+#Holder {
+  margin-left: auto;
+  margin-right: auto;
+  width: 760px;
+}
+
+#Header {
+  height: 20px;
+  margin-top: 25px;
+}
+
+  #Header-Title {
+    float: left;
+    width: 300px;
+  }
+  
+  #Header-Links {
+    float: right;
+    width: 200px;
+    height: 81px;
+    text-align: right;
+  }
+  
+    #Header-Links a {
+      text-decoration: none;
+    }
+    
+    #Header-Links a:hover {
+      text-decoration: underline;
+    }
+
+#Login-Box {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  width: 300px;
+  border: 1px solid blue;
+  background-color: #FFF;
+}
+
+#Content {
+  font-size: 12px ;
+}
+
+#Pages-List {
+  width: 350px;
+  border: 1px solid #CCC;
+}
+
+.Section-Title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.Section-Content {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #CCC;
+}
+
+.List-Box-Type {
+  margin-bottom: 25px;
+  padding: 10px;
+  border: 1px solid #00AAAA;
+  background-color: #C4FFFF;
+}
+
+  .List-Box-Type-Name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .List-Box-Type-Description {
+    float: left;
+    width: 500px;
+    padding: 5px;
+    background-color: #FFF;
+    border: 1px solid #004080;
+  }
+  
+  .List-Box-Type-Select {
+    float: right;
+    width: 150px;
+  }

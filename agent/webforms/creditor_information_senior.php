@@ -195,31 +195,22 @@ if(isset($_POST['SaveWebForm']))
      // -------------
      $agentGroup_GAB = array(
        'PREMIER-GAB',
-       'STANDARD-GAB',
-       'GAB',
-       'GABAGENT',
-       'GABSENIOR',
      );
      
      // -- Resolve Groups
      // -----------------
      $agentGroup_Resolv = array(
-       'PREMIER-RESOLVE',
-       'PREMIER-RESOLVEPART',
-       'STANDARD-RESOLVE',
-       'STANDARD-RESOLVEPART',
-       'RESOLVE',
+       'PREMIER',
+       'PREMIER-PART',
+       'STANDARD',
+       'STANDARD-PART',
+       'SENIORS',
      );
      
      // -- GBS Groups
      // -------------
      $agentGroups_GBS = array(
        'PREMIER-GBS',
-       'STANDARD-GBS',
-       'GBS',
-       'GBSAGENT',
-       'GBSTRAINING',
-       'GBSSPECIAL',
      );
      
      if(in_array($agentDetails['agentGroup'], $agentGroup_GAB))

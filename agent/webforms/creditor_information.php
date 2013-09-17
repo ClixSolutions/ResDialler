@@ -16,12 +16,15 @@ $seniorGroups = array(
   'SENIORS',
 );
 
+
 if(isset($_GET['group']) && in_array($_GET['group'], $seniorGroups))
 {
+//  print "Is Senior";
   $isSenior = true;
 }
 else
 {
+//  print "Not Senior";
   $isSenior = false;
 }
 
@@ -223,7 +226,7 @@ if(isset($_POST['SaveWebForm']))
 			
 			$emailData = array();
 			
-			$emailData['to']      = "sales@gregsonandbrooke.co.uk";
+			$emailData['to']      = "s.skinner@gregsonandbrooke.co.uk";
 			$emailData['subject'] = "Request for Consolidation Client ID: " . $data['ClientID'] . " " . $data['title'] . " " . $data['first_name'] . " " . $data['last_name'];
 			$emailData['body']    = "Lead ID: " . $data['ClientID'] . "<br /><br />";
 			$emailData['body']   .= "Please call <b>" . $data['title'] . " " . $data['first_name'] . " " . $data['last_name'] . "</b> which has been referred by <b>" . $_GET['agent'] . "</b><br /><br />";
@@ -339,7 +342,7 @@ header("Expires: 0"); header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GM
 	  	<?php
 	  }
 	  ?>
-	  <form name="AddCreditor" method="POST" action="<?=$_SERVER['PHP_SELF'];?>?list_id=<?=(int)$_GET['list_id'];?>&lead_id=<?=$_GET['lead_id'] . '&client_id=' . $_GET['client_id'] . '&agent=' . $_GET['agent'];?>">
+	  <form name="AddCreditor" method="POST" action="<?=$_SERVER['PHP_SELF'];?>?list_id=<?=(int)$_GET['list_id'];?>&group=<?=$_GET['group']; ?>&lead_id=<?=$_GET['lead_id'] . '&client_id=' . $_GET['client_id'] . '&agent=' . $_GET['agent'];?>">
 	    <div id="Add-Creditor-Box">
 			  <table width="750">
 				  <tr>
@@ -389,7 +392,7 @@ header("Expires: 0"); header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GM
 					  <td height="45" colspan="6" align="center">
 						  <input type="submit" name="AddCreditor" value="Add Creditor" />
               <?php
-              if(count($creditorList) > 0 && $isSenior == true)
+              if($isSenior == true)
               {
                 ?>
                 <input type="button" name="SeniorForm" value="Continue to Consolidation" onclick="javascript:location.href = 'creditor_information_senior.php?list_id=<?=$_GET['list_id'];?>&lead_id=<?=$_GET['lead_id'];?>&client_id=<?=$_GET['client_id'];?>&agent=<?=$_GET['agent'];?>&group=<?=$_GET['group'];?>';" />
@@ -429,7 +432,7 @@ header("Expires: 0"); header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GM
 						  <td align="right">&pound;<?=number_format($creditor['amount_owed']);?></td>
 						  <td align="right">&pound;<?=number_format($creditor['monthly_amount']);?></td>
 						  <td align="center"><?=$creditor['client_responsible'];?></td>
-						  <td><a href="<?=$_SERVER['PHP_SELF'];?>?list_id=<?=(int)$_GET['list_id'];?>&lead_id=<?=$_GET['lead_id'] . '&client_id=' . $_GET['client_id'] . '&agent=' . $_GET['agent'] . '&remove=' . $creditor['id'];?>" title="Delete Creditor <?=$creditor['description'];?>">x</a></td>
+						  <td><a href="<?=$_SERVER['PHP_SELF'];?>?group=<?=$_GET['group']; ?>&list_id=<?=(int)$_GET['list_id'];?>&lead_id=<?=$_GET['lead_id'] . '&client_id=' . $_GET['client_id'] . '&agent=' . $_GET['agent'] . '&remove=' . $creditor['id'];?>" title="Delete Creditor <?=$creditor['description'];?>">x</a></td>
 						</tr>
 						<?php
 						$i++;

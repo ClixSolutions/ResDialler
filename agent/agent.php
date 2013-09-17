@@ -1,4 +1,4 @@
-<?php
+	<?php
 # vicidial.php - the web-based version of the astVICIDIAL client application
 # 
 # Copyright (C) 2012  Matt Florell <vicidial@gmail.com>    LICENSE: AGPLv2
@@ -665,6 +665,9 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script src="http://dialler.res.clixconnect.net/js/jquery-1.9.0.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/custom.css" />
 <link rel="shortcut icon" href="../img/gologoico.ico" />
@@ -13995,9 +13998,25 @@ if (($call_requeue_button > 0) || ($quick_transfer_button_enabled > 0) || ( ($iv
     <font class="body_tiny" style="display:none;"><span id="RecorDingFilename" style="display:none;"></span></font><!--<br />-->
 <!--    RECORD ID: --><font class="body_small" style="display:none;"><span id="RecorDID" style="display:none;"></span></font><br />
 	</center>
+
+	<div style="text-align: center; margin-bottom: 20px;">
+		<a href="#" onClick="$.get('./aab.php?user=<?php echo $VD_login ?>');">Answerphone</a>
+	</div>
+
+	<div id="comparDiv" style="display: none; width: 650px; height: 700px; top: 0px; position: absolute; background-color: white;">
+        	<div style="text-align: right"><a href="javascript: $('#comparDiv').hide();">Close</a></div><br />
+		<iframe src='http://dialler.res.clixconnect.net/agent/webforms/comparison.html' width='650' height="100%"></iframe>
+	</div>
+
 	<center>
-	<!-- <a href=\"#\" onclick=\"conf_send_recording('MonitorConf','" + head_conf + "','');return false;\">Record</a> -->
-    <span style="background-color: <?php echo $MAIN_COLOR ?>" id="RecorDControl"><a href="#" onclick="conf_send_recording('MonitorConf',session_id,'');return false;"><img src="./images/vdc_LB_startrecording.gif" border="0" alt="Start Recording" /></a></span><br />
+		<div class="compForm"><a href="javascript: $('#comparDiv').show();">Comparison Form</a></div>
+	</center>
+
+
+
+	<center>
+
+    <span style="display: none; background-color: <?php echo $MAIN_COLOR ?>" id="RecorDControl"><a href="#" onclick="conf_send_recording('MonitorConf',session_id,'');return false;"><img src="./images/vdc_LB_startrecording.gif" border="0" alt="Start Recording" /></a></span><br />
     <span id="SpacerSpanA"><img src="./images/blank.gif" width="145px" height="16px" border="0" /></span><br />
     <span id="ScriptButtonSpan"><IMG SRC="./images/script_tab_OFF.png" ALT="SCRIPT" WIDTH=143 HEIGHT=27 BORDER=0></span><br />
 	<?php if ($custom_fields_enabled > 0)

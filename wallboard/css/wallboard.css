@@ -1,0 +1,263 @@
+
+/* Wallboard General Style Sheet */
+
+
+/* Color Scheme
+
+Light Green : #e4edb2
+Light Blue : #92c7ef
+Light Red : #ff6969
+White : #ffffff
+
+Background Grey : #222222
+Line Grey : #494949
+
+*/
+
+@font-face {
+    font-family: "League Gothic";
+    src: url(League_Gothic.otf);
+}
+
+
+
+/* General styles
+----------------- */
+body {
+	background-color: #222222;
+	margin: 20px;
+	padding: 0px;
+	overflow: hidden;
+	
+	text-shadow: 2px 2px 1px #222222, 5px 5px 2px #000000;
+	filter: dropshadow(color=#000000, offx=2, offy=2);
+}
+
+/* Special Areas
+---------------- */
+.nameArea {
+	margin-right: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+	border: #111111 1px solid;
+	
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	margin-bottom: 15px;
+}
+
+.pictureBackground {
+	margin-right: 15px;
+	padding-bottom: 1px;
+	
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+	.pictureBackground .nameArea {
+		margin-left: 15px;
+	}
+
+.greenBackground {
+	background-color: #326542;
+}
+.orangeBackground {
+	background-color: #ba8401;
+}
+.redBackground {
+	background-color: #83413c;
+}
+.veryRedBackground {
+	background-color: #7d1414;
+}
+.greyBackground {
+	background-color: #333333;
+	background-color: RGBA(60,60,60,0.7);
+}
+
+
+/* Font descriptions
+-------------------- */
+
+.smallHeaders {
+	text-transform: uppercase;
+	
+	color: #ffffff;
+	font-family: helvetica;
+	font-size: 170%;
+	font-weight: bold;
+	line-height: 40pt;
+}
+.verySmallHeaders {
+	text-transform: uppercase;
+	
+	color: #DDDDDD;
+	font-family: helvetica;
+	font-size: 100%;
+	font-weight: bold;
+	line-height: 40pt;
+}
+
+.largeText {
+	font-size: 1000%;
+	font-family: "League Gothic";
+	font-weight: bold;
+	line-height: 140pt;
+}
+
+.mediumText {
+	font-size: 600%;
+	font-family: "League Gothic";
+	font-weight: bold;
+	line-height: 80pt;
+}
+
+.mediumSmallText {
+	font-size: 300%;
+	font-family: "League Gothic";
+	font-weight: normal;
+	line-height: 60pt;
+}
+
+.smallText {
+	font-size: 200%;
+	font-family: "League Gothic";
+	font-weight: normal;
+	line-height: 40pt;
+}
+
+.mediumTextUnderset {
+	font-size: 300%;
+	font-family: "League Gothic";
+	font-weight: bold;
+	line-height: 80pt;
+}
+
+.largeTextUnderset {
+	font-size: 500%;
+	font-family: "League Gothic";
+	font-weight: normal;
+}
+
+.largeTextUndersetMin {
+	font-size: 300%;
+	font-family: "League Gothic";
+	font-weight: normal;
+}
+
+.timeDateHeading {
+	color: #e4edb2;
+	font-family: "League Gothic";
+	font-size: 700%;
+}
+
+.Ticker-Tape-Message {
+  color: #FFF;
+  font-family: "League Gothic";
+  font-size: 700%;
+}
+
+.blink {
+    text-shadow: 2px 2px 1px #222222;
+	filter: dropshadow(color=#222222, offx=2, offy=2);
+}
+
+/* Font colours
+--------------- */
+.lightGreen { color: #e4edb2; }
+.darkGreen { color: #23aa49; }
+.lightBlue { color: #92c7ef; }
+.lightRed { color: #ff6969; }
+.orange { color: #f39a1c; }
+.lightGreenish { color: #7ff17f; }
+
+
+/* Column Widths
+---------------- */
+.oneColumn { width: 100%; }
+.twoColumn { width: 50%; }
+
+.twoColumnLarge { width: 80%; }
+.twoColumnSmall { width: 20%; }
+
+.threeColumn { width: 32%; }
+.threeColumnDouble { width: 66%; }
+.threeColumnDoubleSingle { width: 35%; }
+.threeColumnMiddle { width: 36%; }
+.fourColumn { width: 25%; }
+
+.tickerTapeColumn { width: 80% }
+
+
+/* Text Alignments
+------------------ */
+.textRight { text-align: right; }
+.textCenter { text-align: center; }
+.textLeft { text-align: left; }
+
+/* Extra Padding
+---------------- */
+.padBelow {
+	margin-bottom: 15px;
+}
+
+.padRight {
+	padding-right: 15px;
+}
+
+/* Line Classes
+--------------- */
+.lineBelow {
+	border-bottom: #494949 1px solid;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+.lineRight {
+	border-right: #494949 1px solid;
+	margin-right: 20px;
+}
+
+.lineBoth {
+	border-right: #494949 1px solid;
+	border-left: #494949 1px solid;
+	margin-right: 20px;
+	padding-left: 20px;
+}
+
+.lineLeft {
+	border-left: #494949 1px solid;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+
+/* Floats and Clears
+-------------------- */
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+* html .clear{
+  height: 1%;
+  overflow: visible;
+}
+
+*+html .clear{
+  min-height: 1%;
+}
+
+.clear:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
