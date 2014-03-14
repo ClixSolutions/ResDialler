@@ -9,6 +9,8 @@
 		<script src="framework/js/jquery-run.js"></script>
 		
 		<script src="framework/js/timedate.js"></script>		
+
+		<script src="framework/js/battleships.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="css/wallboard.css" />
 		

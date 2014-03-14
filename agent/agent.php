@@ -1,4 +1,4 @@
-	<?php
+<?php
 # vicidial.php - the web-based version of the astVICIDIAL client application
 # 
 # Copyright (C) 2012  Matt Florell <vicidial@gmail.com>    LICENSE: AGPLv2
@@ -587,7 +587,7 @@ $label['address3'] =			'Address3';
 $label['city'] =			'City';
 $label['state'] =			'State';
 $label['province'] =			'Province';
-$label['postal_code'] =			'Postal Code';
+$label['postal_code'] =			'Postcode';
 $label['vendor_lead_code'] =		'Vendor ID';
 $label['gender_list'] =			'Gender';
 $label['phone_number'] =		'Phone';
@@ -14097,6 +14097,7 @@ foreach ($label as $key => $value) {
 			echo "<tr><td align=\"right\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;$value: </font></td><td><input type=\"text\" size=\"20\" name=\"$key\" id=\"$key\" maxlength=\"16\" class=\"cust_form\" value=\"\" /></td></tr>\n";
 			}
 		} else {
+                    $searchCode = '';
 		    switch ($key) {
 			case "title":
 			    $size = "4";
@@ -14117,6 +14118,7 @@ foreach ($label as $key => $value) {
 			case "postal_code":
 			    $size = "14";
 			    $maxlength = "10";
+                            $searchCode	= ' <a href="#" class="startPostcodeSearch">Search</a>';
 			    break;
 			case "vendor_lead_code":
 			    $size = "15";
@@ -14158,7 +14160,7 @@ foreach ($label as $key => $value) {
 			    $size = "20";
 			    $maxlength = "30";
 		    }
-		    echo "<tr><td align=\"right\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;$value: </font></td><td><input type=\"text\" size=\"$size\" maxlength=\"$maxlength\" id=\"$key\" name=\"$key\" class=\"cust_form\" value=\"\" /></td></tr>\n";
+		    echo "<tr><td align=\"right\" width=\"100\" nowrap><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;$value: </font></td><td><input type=\"text\" size=\"$size\" maxlength=\"$maxlength\" id=\"$key\" name=\"$key\" class=\"cust_form\" value=\"\" />".$searchCode."</td></tr>\n";
 		}
 	} else {
 		echo "<tr style=\"display:none;\" width=\"100\" nowrap><td align=\"right\"><font class=\"body_text\">&nbsp; &nbsp; &nbsp; &nbsp;$value: </font></td><td><input type=\"hidden\" id=\"$key\" name=\"$key\" value=\"\" />";
@@ -15002,7 +15004,7 @@ function activateLinks() {
 	<td align="right"> <?php echo $label['state'] ?>: </td><td align="left"><input type="text" size="18" maxlength="20" name="search_state" id="search_state"></td>
 	</tr>
 	<tr>
-	<td align="right"> <?php echo $label['postal_code'] ?>: </td><td align="left"><input type="text" size="10" maxlength="10" name="search_postal_code" id="search_postal_code"></td>
+	<td align="right"> <?php echo $label['postal_code'] ?>: </td><td align="left"><input type="text" size="10" maxlength="10" name="search_postal_code" id="search_postal_code"> <a href="#" onClick="">Search</a></td>
 	</tr>
 	<tr>
 	<td align="center" colspan="2"><br /> <a href="#" onclick="LeadSearchSubmit();return false;">SUBMIT SEARCH</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="#" onclick="LeadSearchReset();return false;">reset form</a></td>
@@ -15139,6 +15141,22 @@ function activateLinks() {
 
 </form>
 
+<script>
+
+    $(".startPostcodeSearch").click(function() {
+        actualPostcode = $('#postal_code').val();
+        add1Number = $('#address1').val().replace(/\D/g,'');
+        houseNumber = prompt("Please enter the House Number:", add1Number);
+        $.getJSON("/agent/pstcdesrch.php?postcode=" + actualPostcode, function(data) {
+            $('#address1').val(houseNumber + " " + data['add1']);
+       	    $('#address2').val(data['add2']);
+       	    $('#city').val(data['town']);
+       	    $('#province').val(data['county']);
+            $('#postal_code').val(data['postcode']);
+        });
+    });
+
+</script>
 
 </body>
 </html>
